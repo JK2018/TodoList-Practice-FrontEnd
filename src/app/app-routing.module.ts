@@ -1,3 +1,4 @@
+import { ListTodoComponent } from './list-todo/list-todo.component';
 import { ErrorComponent } from './error/error.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { LoginComponent } from './login/login.component';
@@ -14,6 +15,9 @@ const routes: Routes = [
   },
   {
     path:'welcome/:username', component: WelcomeComponent
+  },
+  {
+    path:'todos', component: ListTodoComponent
   },
   {
     path:'**', component: ErrorComponent

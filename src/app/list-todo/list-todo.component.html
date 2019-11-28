@@ -1,0 +1,34 @@
+
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-7" style="margin: auto;">
+
+      <h3 style="margin-bottom: 7%;">My Todo's !</h3>
+        <table class="table table-hover" style="margin-bottom: 7%;">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Tasks to be done</th>
+                <th scope="col">Deadline</th>
+                <th scope="col">Completed Status</th>
+              </tr>
+            </thead>
+
+            <tbody>
+
+              <tr *ngFor="let todo of todos"  class="table-light">
+                <td>{{todo.id}}</td>
+                <td>{{todo.description}}</td>
+                <td>{{todo.targetDate | date}}</td>
+                <td>{{todo.done}}</td>
+              </tr>
+
+            </tbody>
+          </table>
+
+          <p>You can go back to the welcome page <a routerLink="/welcome/dex">HERE</a></p>
+    </div>
+  </div>
+</div>
+
+
