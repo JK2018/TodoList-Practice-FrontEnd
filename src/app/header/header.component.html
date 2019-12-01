@@ -16,9 +16,9 @@
             <li class="nav-item">
               <a *ngIf="auth.isUserLogedIn()" class="nav-link" routerLink="/todos" href="#">Todo's !</a>
             </li>
-            <li class="nav-item">
-              <a *ngIf="auth.isUserLogedIn()" class="nav-link" href="#">New Todo</a>
-            </li>
+            <!--<li class="nav-item">
+              <a *ngIf="auth.isUserLogedIn()" (click)="addTodo()" class="nav-link" href="#">Add New Todo</a>
+            </li>-->
           </ul>
 
 

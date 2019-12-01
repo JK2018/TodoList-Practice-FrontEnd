@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { TodoDataService } from './../service/data/todo-data.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -29,22 +30,50 @@ export class ListTodoComponent implements OnInit {
 
   todos = [];
   username = sessionStorage.getItem('authenticatedUser');
+  message : string;
 
-  constructor(private todoDataService : TodoDataService) { }
+  constructor(private todoDataService : TodoDataService, private router : Router) { }
 
   ngOnInit() {
-    //show all todos to be displayed
-    this.todoDataService.retrieveAllTodos(this.username).subscribe(
-      response => {
-        console.log(response);
-        this.todos=response;
-      }
+    this.refreshTodos();
+  }
+
+  refreshTodos(){
+        //show all todos to be displayed
+        this.todoDataService.retrieveAllTodos(this.username).subscribe(
+          response => {
+            console.log(response);
+            this.todos=response;
+          }
+        );
+  }
+
+  deleteOneTodo(id){
+    this.todoDataService.deleteOneTodo(this.username, id).subscribe(
+      response => {console.log(response);
+      this.message = `Todo #${id} Successfully Deleted !`;
+      this.refreshTodos();}
     );
   }
 
-
-  deleteOneTodo(id){
-
+  updateOneTodo(id) {
+    this.router.navigate(['todos',id]);
   }
+
+  addTodo(){
+    this.router.navigate(['todos',-1]);
+  }
+
+
+
+
+
+
+
+
+
+
+
+
 
 }

@@ -1,6 +1,6 @@
 
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 export class HelloBean {
   constructor(public msg : string ){
@@ -25,12 +25,19 @@ executeHelloBean(){
 
 
 executeHelloBeanWithPathVariable(user){
-  return this.http.get<HelloBean>(`http://localhost:8080/hello/${user}`);
+  let basicAuthHeaderString = this.createBasicAuthenticationHttpHeader();
+  let headers = new HttpHeaders({ Authorization: basicAuthHeaderString});
+  return this.http.get<HelloBean>(`http://localhost:8080/hello/${user}`,{headers});
 }
 
 
 
-
+createBasicAuthenticationHttpHeader(){
+  let username = 'j';
+  let password = 'k';
+  let basicAuthHeaderString = 'Basic' + window.btoa(username + ':' + password);
+  return basicAuthHeaderString;
+}
 
 
 
