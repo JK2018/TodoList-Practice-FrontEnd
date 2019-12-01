@@ -25,19 +25,13 @@ executeHelloBean(){
 
 
 executeHelloBeanWithPathVariable(user){
-  let basicAuthHeaderString = this.createBasicAuthenticationHttpHeader();
-  let headers = new HttpHeaders({ Authorization: basicAuthHeaderString});
-  return this.http.get<HelloBean>(`http://localhost:8080/hello/${user}`,{headers});
+
+  return this.http.get<HelloBean>(`http://localhost:8080/hello/${user}`);
 }
 
 
 
-createBasicAuthenticationHttpHeader(){
-  let username = 'j';
-  let password = 'k';
-  let basicAuthHeaderString = 'Basic' + window.btoa(username + ':' + password);
-  return basicAuthHeaderString;
-}
+
 
 
 
