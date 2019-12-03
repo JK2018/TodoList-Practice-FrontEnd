@@ -13,7 +13,7 @@ export class HelloBean {
 })
 export class WelcomeDataService {
 
-  user = sessionStorage.getItem('authenticatedUser');
+  //////////////////////user = sessionStorage.getItem('authenticatedUser');
 
   constructor(private http : HttpClient) { }
 
@@ -25,7 +25,6 @@ executeHelloBean(){
 
 
 executeHelloBeanWithPathVariable(user){
-
   return this.http.get<HelloBean>(`http://localhost:8080/hello/${user}`);
 }
 

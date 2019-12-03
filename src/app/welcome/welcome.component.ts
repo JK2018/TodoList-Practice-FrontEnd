@@ -16,11 +16,13 @@ export class WelcomeComponent implements OnInit {
   welcomeMsgFromService : string;
   errorMsgFromService : string;
 
+
   //inj activatedRoute in order to receive route parameter
   constructor(private activatedRoute : ActivatedRoute, private welcomeDataService : WelcomeDataService) { }
 
   ngOnInit() {
-    this.name = this.activatedRoute.snapshot.params['username']; // will fetch all the passed params through the route/url
+    this.name=sessionStorage.getItem('authenticatedUser');
+    //this.name = this.activatedRoute.snapshot.params['username']; // will fetch all the passed params through the route/url
   }
 
 //to be executed on user btn click

@@ -16,7 +16,8 @@
           <label>Password</label>
           <input type="password" class="form-control" [(ngModel)]="password" name="password" placeholder="Password">
         </div>
-        <button (click)="submitLogin()" class="btn btn-primary">Log-In</button>
+        <!--<button (click)="submitLogin()" class="btn btn-primary">Log-In(old)</button>-->
+        <button (click)="handleBasicAuthLogin()" class="btn btn-primary">Log-In</button>
       </fieldset>
     </form>
   </div>
