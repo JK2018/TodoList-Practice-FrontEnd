@@ -16,17 +16,14 @@
             <li class="nav-item">
               <a *ngIf="auth.isUserLogedIn()" class="nav-link" routerLink="/todos" href="#">Todo's !</a>
             </li>
-            <!--<li class="nav-item">
-              <a *ngIf="auth.isUserLogedIn()" (click)="addTodo()" class="nav-link" href="#">Add New Todo</a>
-            </li>-->
           </ul>
 
 
-
-
           <ul>
-              <a *ngIf="!auth.isUserLogedIn()" class="badge badge-pill badge-secondary" routerLink="/login" href="#" >Log-In</a>
-              <a *ngIf="auth.isUserLogedIn()" class="badge badge-pill badge-warning" routerLink="/logout" href="#" style="margin-top:10px;">Log-Out</a>
+            <a *ngIf="!auth.isUserLogedIn()" class="badge badge-pill badge-secondary" routerLink="/login"
+              href="#">Log-In</a>
+            <a *ngIf="auth.isUserLogedIn()" class="badge badge-pill badge-warning" routerLink="/logout" href="#"
+              style="margin-top:10px;">Log-Out</a>
           </ul>
 
         </div>

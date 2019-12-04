@@ -1,4 +1,4 @@
-import { HardCodedAuthService } from './hard-coded-auth.service';
+import { BasicAuthService } from './basic-auth.service';
 import { Injectable } from '@angular/core';
 import {
   CanActivate,
@@ -11,8 +11,14 @@ import {
   providedIn: 'root'
 })
 export class RouteGuardService implements CanActivate {
-  constructor(private auth: HardCodedAuthService, private router: Router) {}
+  constructor(private auth: BasicAuthService, private router: Router) {}
 
+
+  /**
+   * Guards all roots in case of a non authentificated user tries
+   * to access content by manually typing in the url to bypass login.
+   * Will be redirected to login page.
+   */
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     if (this.auth.isUserLogedIn()) {
       return true;

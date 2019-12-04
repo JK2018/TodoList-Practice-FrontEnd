@@ -1,46 +1,45 @@
-
 <div class="container">
   <div class="row mt-5">
     <div class="col-7" style="margin: auto;">
 
       <!--Alert message-->
-        <div *ngIf='message'  class="alert alert-dismissible alert-success">
-            <strong>{{message}}</strong>
-          </div>
+      <div *ngIf='message' class="alert alert-dismissible alert-success">
+        <strong>{{message}}</strong>
+      </div>
 
 
       <h3 style="margin-bottom: 7%;">My Todo's !</h3>
-        <table class="table table-hover" style="margin-bottom: 7%;">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Tasks to be done</th>
-                <th scope="col">Deadline</th>
-                <th scope="col">Completed Status</th>
-                <th scope="col">Action</th>
-              </tr>
-            </thead>
 
-            <tbody>
+      <table class="table table-hover" style="margin-bottom: 7%;">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Tasks to be done</th>
+            <th scope="col">Deadline</th>
+            <th scope="col">Completed Status</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
 
-              <tr *ngFor="let todo of todos"  class="table-light">
-                <td>{{todo.id}}</td>
-                <td>{{todo.description}}</td>
-                <td>{{todo.targetDate | date}}</td>
-                <td>{{todo.isDone}}</td>
-                <td>
-                  <button type="button" (click)="updateOneTodo(todo.id)" class="btn btn-outline-warning btn-sm">Update</button>
-                  <button type="button" (click)="deleteOneTodo(todo.id)" class="btn btn-outline-danger btn-sm">Delete</button>
-                </td>
-              </tr>
+        <tbody>
+          <tr *ngFor="let todo of todos" class="table-light">
+            <td>{{todo.id}}</td>
+            <td>{{todo.description}}</td>
+            <td>{{todo.targetDate | date}}</td>
+            <td>{{todo.isDone}}</td>
+            <td>
+              <button type="button" (click)="updateOneTodo(todo.id)"
+                class="btn btn-outline-warning btn-sm">Update</button>
+              <button type="button" (click)="deleteOneTodo(todo.id)"
+                class="btn btn-outline-danger btn-sm">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
 
-            </tbody>
-          </table>
-          <button style="margin-bottom: 15%;" type="button" (click)="addTodo()" class="btn btn-outline-success btn-lg">Add Todo</button>
-
+      <button style="margin-bottom: 15%;" type="button" (click)="addTodo()" class="btn btn-outline-success btn-lg">Add
+        Todo</button>
 
     </div>
   </div>
 </div>
-
-

@@ -1,38 +1,24 @@
-
-
-
-
 <div class="container">
   <div class="row">
     <div class="col">
-        <div class="jumbotron">
+      <div class="jumbotron">
 
-          <!--visible only when server response error-->
+            <!--visible only when server response error FOR LATER USE
             <div *ngIf="errorMsgFromService"  class="alert alert-dismissible alert-danger">
                 <strong>Oh snap!</strong> An ERROR has occured! Please contact suport at ***-*** or try again later.
-              </div>
+            </div>-->
 
 
-            <h1 class="display-3">Hello, {{name}}</h1>
-            <div *ngIf="welcomeMsgFromService" >
-                <h2>customized welcome msg :</h2>
-                {{welcomeMsgFromService}}
-            </div>
+        <h1 class="display-3">Hello, {{name}}</h1>
 
-            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-            <hr class="my-4">
-            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-            <p class="lead">
-              <a class="btn btn-primary btn-lg" routerLink="/todos" role="button">My Todo List</a>
-            </p>
-            <p class="lead">
-                <a class="btn btn-success btn" role="button" (click)="getWelcomeMsg()">welcome message test</a>
-                <a class="btn btn-success btn" role="button" (click)="getWelcomeMsgWithPathVariable()">welcome message w path var test</a>
-              </p>
-          </div>
+        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to
+          featured content or information.</p>
+        <hr class="my-4">
+        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+        <p class="lead">
+          <a class="btn btn-primary btn-lg" routerLink="/todos" role="button">My Todo List</a>
+        </p>
+      </div>
     </div>
   </div>
 </div>
-
-
-
